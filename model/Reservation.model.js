@@ -5,12 +5,12 @@ const {Schema, model} = mongoose
 const ReservationSchema = new Schema({
   userDetails : {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'users',
+    ref: 'user',
     required: true,
   },
   ticketDetails: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'tickets',
+    ref: 'ticket',
     required: true,
   },
   status: {
@@ -19,6 +19,8 @@ const ReservationSchema = new Schema({
     default: false
   }
 });
+
+ReservationSchema.set('strictPopulate', false);
 
 
 const Reservation = model('reservation', ReservationSchema);
