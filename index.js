@@ -35,6 +35,8 @@ app.use(cors({
    /* /
   / -----ROUTES API
  / */
+ const reservation = require("./routes/reservation.routes")
+ app.use("/reservation", reservation);
 
 // ------- router for test
 app.get("/test", async(req,res) => {return res.send("ISBS serveur test router")})
