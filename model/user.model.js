@@ -7,13 +7,13 @@ const phoneNumberValidationRegex = /\d{2}-\d{3}-\d{3}/
 // ----- Create Schema for Users 
 const userSchema = new Schema({
   firstName : {
-    type : string,
+    type : String,
     required: true,
     default : false,
     length: 3
   },
   lastName : {
-    type : string,
+    type : String,
     required: true,
     default : false,
     length: 3
