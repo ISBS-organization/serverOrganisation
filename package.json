@@ -4,7 +4,9 @@
   "description": "the serveur managment of the ISBS organization events",
   "main": "server.js",
   "scripts": {
-    "test": "npm run test"
+    "server": "node  server.js",
+    "test": "npm run jest",
+    "develop": "nodemon server.js"
   },
   "repository": {
     "type": "git",
