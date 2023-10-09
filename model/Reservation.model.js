@@ -13,6 +13,11 @@ const ReservationSchema = new Schema({
     ref: 'tickets',
     required: true,
   },
+  status: {
+    type: Boolean,
+    required: true,
+    default: false
+  }
 });
 
 
