@@ -1,0 +1,26 @@
+{
+  "name": "serverorganisation",
+  "version": "1.0.0",
+  "description": "the serveur managment of the ISBS organization events",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ISBS-organization/serverOrganisation.git"
+  },
+  "keywords": [
+    "events",
+    "isbs",
+    "raed",
+    "rdhaounia",
+    "organisation"
+  ],
+  "author": "raed rdhaounia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ISBS-organization/serverOrganisation/issues"
+  },
+  "homepage": "https://github.com/ISBS-organization/serverOrganisation#readme"
+}
