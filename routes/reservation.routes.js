@@ -10,6 +10,7 @@ const { createUserModel } = require("../controller/reservation/middleware/Create
 const { isAbleTo } = require("../controller/reservation/middleware/canDo.auth");
 const paymentReservation = require("../controller/reservation/paymentReservation.controller");
 const sendEmailReservation = require("../controller/reservation/sendReservation.controller");
+const sendReservation = require("../controller/reservationEmail.controller");
 // ----- controller reservation paths
 
 // ----- middleware reservation paths
@@ -27,7 +28,7 @@ router.get( "/test", (req, res) => { res.status(200).send("test reservation rout
   /*
  /  ----  add reservation route auth (send active email)
 /*/
-router.post( "/add", reservationInputs, validateInputs, createUserModel, createTicketModel, createReservationModel, sendEmailReservation);
+router.post( "/add", reservationInputs, validateInputs, createUserModel, createTicketModel, createReservationModel, sendEmailReservation, sendReservation);
 
 
   /*
