@@ -21,6 +21,6 @@ exports.createReservationModel = async (req, res, next) => {
     next();
   } catch (error) {
     console.log(error)
-    return res.status(500).send('Internal server error');
+    return res.status(500).send({message:'Internal server error'});
   }
 };

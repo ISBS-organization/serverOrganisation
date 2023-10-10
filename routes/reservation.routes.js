@@ -7,6 +7,7 @@ const getReservations = require("../controller/reservation/getReservationList.co
 const { createReservationModel } = require("../controller/reservation/middleware/CreateReservation.middleware");
 const { createTicketModel } = require("../controller/reservation/middleware/CreateTicket.middleware");
 const { createUserModel } = require("../controller/reservation/middleware/CreateUser.middleware");
+const { isAbleTo } = require("../controller/reservation/middleware/canDo.auth");
 const paymentReservation = require("../controller/reservation/paymentReservation.controller");
 const sendEmailReservation = require("../controller/reservation/sendReservation.controller");
 // ----- controller reservation paths
@@ -32,11 +33,11 @@ router.post( "/add", reservationInputs, validateInputs, createUserModel, createT
   /*
  /  ----  get reservations route  (get)
 /*/
-router.get( "/getAll", getReservations);
+router.get( "/getAll", isAbleTo, getReservations);
 
   /*
  /  ----  payment reservations route
 /*/
-router.post( "/payment", paymentReservation);
+router.post( "/payment",isAbleTo, paymentReservation);
 
 module.exports = router;

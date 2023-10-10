@@ -15,7 +15,7 @@ const getReservations = async (req, res) => {
         return res.status(200).send({ message: "list of reservations", data: reservations})
       } catch (error) {
         console.log(error)
-        return res.status(500).send('Internal server error');
+        return res.status(500).send({message:'Internal server error'});
       }
     }
 
