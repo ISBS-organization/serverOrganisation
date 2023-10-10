@@ -18,13 +18,13 @@ const basedUrl = process.env.BasedUrl
 
 const sendReservation =  async (req, res) => {
 // ----- get using information from request
-  const {email, firstName, lastName} = req.userContact
+  const {email, firstName, lastName, phoneNumber, nb_tickets} = req.userContact
 // ----- collect email variable information
   const userEmail = {email, firstName, lastName}
-// ----- create activate link for reset password account
+// ----- create details link for event details 
   const active_link = `http://${basedUrl}/event`
 // ----- create html file for reset password account
-  const html    = getHtmlFile(userEmail, active_link, "reservationEmail.hbs")
+  const html    = getHtmlFile(userEmail, active_link, "ReservationEmail.hbs")
 // ----- create information related to user email
   const subject = "reservation email for the event"
   const text    = "this is the reservation confimation of the event you like to join at SBIS university for more details you can see here" + active_link
@@ -36,8 +36,9 @@ const sendReservation =  async (req, res) => {
 // ----- send email
     await transporter.sendMail(mailOptions)
 // ----- response validate for email sent
-    return res.status(200).send({message: "please check your email please and thanks"})
+  return res.status(200).send({ message: "please check your email please and thanks", data: {email, firstName, lastName, phoneNumber, nb_tickets} })
   } catch (error) {
+    console.error("error", error)
     return res.status(500).send('Internal server error');
   }
 };

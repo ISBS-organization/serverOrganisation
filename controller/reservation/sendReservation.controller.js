@@ -3,16 +3,16 @@
 /*/
 
 
-const sendEmailReservation = async (req, res) => {
+const sendEmailReservation = async (req, res, next) => {
 // ----- get using information from request
-  const {email, firstName, lastName, phoneNumber, nb_tickets} = req.body
+  const {email, firstName, lastName} = req.body
 
    try {
 // ----- send email
-
+    req.userContact = {email, firstName, lastName}
 // ----- response validate for email sent
-    return res.status(200).send({ message: "please check your email please and thanks", data: {email, firstName, lastName, phoneNumber, nb_tickets} })
-  } catch (error) {
+    next()
+} catch (error) {
     console.log(error)
     return res.status(500).send({message:'Internal server error'});
   }
