@@ -15,7 +15,6 @@ const paymentReservation = async (req, res) => {
           {status: true},
           { new: true }
         )
-        console.log(reservation, "test")
         if (reservation) {
           return res.status(201).send({ message: "your reservation is payed with success", data: reservation})
         }
