@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const {Schema, model} = mongoose
 
 const emailValidationRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
-const phoneNumberValidationRegex = /\d{2}-\d{3}-\d{3}/
 
 // ----- Create Schema for Users 
 const userSchema = new Schema({
@@ -33,12 +32,6 @@ const userSchema = new Schema({
     type: String,
     unique: true,
     required: true,
-    validate: {
-      validator: function(v) {
-        return phoneNumberValidationRegex.test(v);
-      },
-      message: '{VALUE} is not a valid phoneNumber!'
-    },
   }
 });
 
