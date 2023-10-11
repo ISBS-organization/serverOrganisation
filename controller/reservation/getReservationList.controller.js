@@ -10,7 +10,6 @@ const getReservations = async (req, res) => {
        try {
     // ----- send email
         const reservations = await Reservation.find().populate(["ticketDetails", "userDetails"])
-        console.log(reservations, "test")
     // ----- response validate for email sent
         return res.status(200).send({ message: "list of reservations", data: reservations})
       } catch (error) {
