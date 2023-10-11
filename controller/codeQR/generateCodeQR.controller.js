@@ -8,7 +8,7 @@ const generateCodeQr = async (req, res, next) => {
     // ----- get using information from request
     const test = Date.now()
        try {
-        const codeQr = await QRCode.toFile( `asset/${test}.png`,`hello how are all nice to scan my Qr code `,{type:'png', errorCorrectionLevel: 'medium' })
+        const codeQr = await QRCode.toCanvas( `asset/${test}.png`,`hello how are all nice to scan my Qr code `,{type:'png', errorCorrectionLevel: 'medium' })
     // ----- response of the generated code qr
        req.codeQr = codeQr
        next()
