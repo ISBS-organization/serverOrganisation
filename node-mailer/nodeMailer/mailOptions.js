@@ -1,11 +1,12 @@
-async function MailOptions(to, subject, text, html) {
+async function MailOptions(to, subject, text, html, attachments) {
   const EMAIL_ADDRESS  = process.env.EMAIL_ADDRESS
   const mailOptions = {
     from: EMAIL_ADDRESS,
     to,
     subject,
     text,
-    html
+    html,
+    attachments
   };
   return mailOptions
 }

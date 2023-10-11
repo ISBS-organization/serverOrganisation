@@ -31,7 +31,7 @@ const sendReservation =  async (req, res) => {
 
 // ----- create instances email sender and options
   const transporter = await Transporter()
-  const mailOptions = await MailOptions(email, subject, text, html)
+  const mailOptions = await MailOptions(email, subject, text, html, [] )
   try {
 // ----- send email
     await transporter.sendMail(mailOptions)
