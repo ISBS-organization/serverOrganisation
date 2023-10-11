@@ -38,6 +38,9 @@ app.use(cors({
  const reservation = require("./routes/reservation.routes")
  app.use("/reservation", reservation);
 
+ const codeQr = require("./routes/codeQr.routes")
+ app.use("/generate", codeQr);
+
 // ------- router for test
 app.get("/test", async(req,res) => {return res.send("ISBS serveur test router")})
 
