@@ -1,7 +1,7 @@
 const dotenv = require('dotenv')
 dotenv.config()
 
-const queryListController = async (req, res) => {
+const checkPassword = async (req, res) => {
     const ADMINTOKENKEY = process.env.ADMINTOKENKEY
   const token = req.body.token
   try {
@@ -14,4 +14,4 @@ const queryListController = async (req, res) => {
  }
 }
 
-module.exports = queryListController
+module.exports = checkPassword
