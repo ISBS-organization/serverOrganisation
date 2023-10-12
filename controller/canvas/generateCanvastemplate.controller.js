@@ -7,10 +7,11 @@ const fs = require('fs');
 // Define an async middleware function
 exports.generateQRCodeAndAddToTemplate = async (req, res, next) => {
   // Text you want to encode in the QR code
-  const {userDetails, ticketDetails, id} = req.reservation
+  const {userDetails, ticketDetails, id, status} = req.reservation
   const {email, firstName, lastName, phoneNumber} = userDetails
-  const {price, nb_ticket} = ticketDetails
-  const textToEncode = firstName + lastName + id + "paye/ non payé";
+  const {nb_ticket, price} = ticketDetails
+
+  const textToEncode = ` your ticket is ${status ? "valid": "not valid"} for ${nb_ticket} person`;
 
   try {
     // Create a canvas with the desired dimensions
