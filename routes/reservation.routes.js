@@ -3,6 +3,8 @@
 /*/
 const router = require("express").Router();
 
+const queryListController = require("../controller/getReservation/queryListController.controller");
+const searchReservationQuery = require("../controller/getReservation/queryListSearch.middleware");
 const getReservations = require("../controller/reservation/getReservationList.controller");
 const { createReservationModel } = require("../controller/reservation/middleware/CreateReservation.middleware");
 const { createTicketModel } = require("../controller/reservation/middleware/CreateTicket.middleware");
@@ -35,6 +37,13 @@ router.post( "/add", reservationInputs, validateInputs, createUserModel, createT
  /  ----  get reservations route  (get)
 /*/
 router.get( "/getAll", isAbleTo, getReservations);
+
+
+  /*
+ /  ----  get reservations route  (get)
+/*/
+router.get( "/getReservations", isAbleTo, searchReservationQuery, queryListController);
+
 
   /*
  /  ----  payment reservations route
