@@ -46,7 +46,6 @@ exports.generateQRCodeAndAddToTemplate = async (req, res, next) => {
     // Convert the canvas to a Buffer
     const buffer = canvas.toBuffer('image/png');
 
-    fs.writeFileSync('/home/raed/Desktop/A.L.A/isbs/serverOrganisation/asset/reservationTicket1.png', buffer);
     req.image = buffer
     req.userContact = {email, firstName, lastName, phoneNumber, price, nb_ticket}
     next();
