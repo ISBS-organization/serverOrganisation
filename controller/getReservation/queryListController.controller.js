@@ -1,7 +1,7 @@
 const Reservation = require("../../model/Reservation.model");
 
 const queryListController = async (req, res) => {
-
+  const status = req.query.status
   const usersId = req.usersId
   try {
     // Step 2: Collect user IDs
@@ -11,7 +11,10 @@ const queryListController = async (req, res) => {
     const reservationQuery = {
       'userDetails': { $in: userIds }
     };
-
+    if (status === 'true' || status === 'false') {
+      // If a valid 'status' query parameter is provided, use it to filter reservations
+      reservationQuery.status = status === 'true';
+    }
     const reservations = await Reservation.find(reservationQuery).exec();
 
     // Step 4: Populate user details for each reservation
