@@ -18,10 +18,11 @@ const queryListController = async (req, res) => {
     const reservations = await Reservation.find(reservationQuery).exec();
 
     // Step 4: Populate user details for each reservation
-    const populatedReservations = await Reservation.populate(reservations, { path: ['userDetails','ticketDetails'] });
+    const populatedReservations = await Reservation.populate(reservations, ["ticketDetails", 'userDetails'] );
 
     return res.status(200).send({message: "list of reservation", data:populatedReservations})
   } catch (error) {
+    console.log(error)
     return res.status(500).send({message: "server error please try later"})
  }
 }
