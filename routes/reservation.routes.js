@@ -32,13 +32,6 @@ router.get( "/test", (req, res) => { res.status(200).send("test reservation rout
 /*/
 router.post( "/add", reservationInputs, validateInputs, createUserModel, createTicketModel, createReservationModel, sendEmailReservation, sendReservation);
 
-
-  /*
- /  ----  get reservations route  (get)
-/*/
-router.get( "/getAll", isAbleTo, getReservations);
-
-
   /*
  /  ----  get reservations route  (get)
 /*/
