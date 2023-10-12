@@ -6,6 +6,6 @@ const router = require("express").Router();
   /*
  /  ----  code qr route
 /*/
-router.get( "/check", checkPassword);
+router.post( "/check/:token", checkPassword);
 
 module.exports = router;
