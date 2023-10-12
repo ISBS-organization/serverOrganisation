@@ -14,7 +14,7 @@ const sendReservationTicket =  async (req, res) => {
 
 // ----- create information related to user email
   const subject = "reservation  ticket for the event"
-  const text    = "this is the reservation ticket of the event you like to join at SBIS university thanks for your trust"
+  const text    = "Thank you for placing your trust in us. Attached is your reservation ticket for the upcoming event Bassbousa 1.0 at ISBS University, which you expressed interest in attending."
 
 // ----- create instances email sender and options
   const transporter = await Transporter()
