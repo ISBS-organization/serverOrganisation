@@ -41,6 +41,9 @@ app.use(cors({
  const codeQr = require("./routes/codeQr.routes")
  app.use("/generate", codeQr);
 
+ const aucth = require("./routes/auth.routes")
+ app.use("/auth", aucth);
+
 // ------- router for test
 app.get("/test", async(req,res) => {return res.send("ISBS serveur test router")})
 
