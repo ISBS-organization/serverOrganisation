@@ -1,6 +1,7 @@
 const { createCanvas, loadImage } = require('canvas');
 const QRCode = require('qrcode');
 const fs = require('fs');
+const path = require('path');
 
 
 
@@ -25,8 +26,7 @@ exports.generateQRCodeAndAddToTemplate = async (req, res, next) => {
     const image = await loadImage(qrCodeDataUrl);
 
     // Load your canvas template image
-    const templateImage = await loadImage('/home/raed/Desktop/A.L.A/isbs/serverOrganisation/asset/reservationTicket.png');
-
+    const templateImage = await loadImage(path.join(process.cwd(), "asset", 'reservationTicket.png'));
     // Draw your template image on the canvas
     context.drawImage(templateImage, 0, 0, canvas.width, canvas.height);
 
