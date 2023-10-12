@@ -49,6 +49,7 @@ exports.generateQRCodeAndAddToTemplate = async (req, res, next) => {
 
     req.image = buffer
     req.userContact = {email, firstName, lastName, phoneNumber, price, nb_ticket}
+    req.id = id
     next();
   } catch (error) {
     // Handle errors here
