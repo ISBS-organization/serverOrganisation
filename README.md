@@ -1,2 +1,3 @@
 # serverOrganisation
-the serveur managment of the ISBS organization events
+the server management of the ISBS organization events
+add new line
